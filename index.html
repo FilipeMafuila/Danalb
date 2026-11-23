@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#122c42">
-  <meta name="description" content="Transporte privado em Luanda para deslocações pessoais e empresariais. Consulte a DANALB EXPRESS e combine a sua viagem por telefone ou WhatsApp.">
-  <title>DANALB EXPRESS | Transporte privado em Luanda</title>
+  <meta name="theme-color" content="#051C66">
+  <meta name="description" content="Táxi privado e transporte empresarial em Luanda. Solicite a sua viagem à DANALB Angola pelo formulário, telefone ou WhatsApp.">
+  <title>DANALB Angola | Táxi privado e transporte empresarial em Luanda</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,6 +93,22 @@
           <article class="service-item">
             <span class="service-item__number">03</span>
             <div>
+              <h3>Colaboradores e gestores</h3>
+              <p>Transporte para equipas e gestores, organizado conforme o percurso e o horário necessários.</p>
+            </div>
+            <a href="#pedido" aria-label="Solicitar transporte para colaboradores e gestores">↗</a>
+          </article>
+          <article class="service-item">
+            <span class="service-item__number">04</span>
+            <div>
+              <h3>Reuniões e compromissos</h3>
+              <p>Deslocações planeadas para reuniões, encontros profissionais e outros compromissos.</p>
+            </div>
+            <a href="#pedido" aria-label="Solicitar transporte para uma reunião ou compromisso">↗</a>
+          </article>
+          <article class="service-item">
+            <span class="service-item__number">05</span>
+            <div>
               <h3>Viagens agendadas</h3>
               <p>Combine a data, a hora, a origem e o destino com antecedência, sujeito a confirmação de disponibilidade.</p>
             </div>
@@ -141,7 +157,7 @@
         <div class="booking__intro">
           <p class="eyebrow eyebrow--light"><span></span> RESERVA DE TRANSPORTE</p>
           <h2 id="booking-title">Vamos combinar a sua próxima viagem.</h2>
-          <p>Indique os dados essenciais. No final, abriremos o WhatsApp com a mensagem pronta para enviar à equipa.</p>
+          <p>Preencha os dados da deslocação. O pedido será enviado directamente por e-mail à equipa da DANALB Angola.</p>
           <a class="booking__phone" href="tel:+244936611252"><span>Prefere ligar?</span>+244 936 611 252</a>
         </div>
 
@@ -149,19 +165,27 @@
           <div class="form-grid">
             <div class="field">
               <label for="clienteNome">Nome <span aria-hidden="true">*</span></label>
-              <input id="clienteNome" name="nome" type="text" autocomplete="name" placeholder="O seu nome" required>
+              <input id="clienteNome" name="nome" type="text" autocomplete="name" maxlength="100" placeholder="O seu nome" required>
             </div>
             <div class="field">
               <label for="clienteTelefone">Telefone / WhatsApp <span aria-hidden="true">*</span></label>
-              <input id="clienteTelefone" name="telefone" type="tel" autocomplete="tel" placeholder="Ex.: 936 611 252" required>
+              <input id="clienteTelefone" name="telefone" type="tel" autocomplete="tel" maxlength="25" placeholder="Ex.: 936 611 252" required>
+            </div>
+            <div class="field">
+              <label for="clienteEmail">E-mail <span class="optional">(opcional)</span></label>
+              <input id="clienteEmail" name="email" type="email" autocomplete="email" maxlength="254" placeholder="nome@exemplo.com">
+            </div>
+            <div class="field">
+              <label for="clienteEmpresa">Empresa <span class="optional">(opcional)</span></label>
+              <input id="clienteEmpresa" name="empresa" type="text" autocomplete="organization" maxlength="120" placeholder="Nome da empresa ou instituição">
             </div>
             <div class="field">
               <label for="localPartida">Local de partida <span aria-hidden="true">*</span></label>
-              <input id="localPartida" name="origem" type="text" placeholder="Bairro ou ponto de referência" required>
+              <input id="localPartida" name="origem" type="text" maxlength="200" placeholder="Bairro ou ponto de referência" required>
             </div>
             <div class="field">
               <label for="localDestino">Destino <span aria-hidden="true">*</span></label>
-              <input id="localDestino" name="destino" type="text" placeholder="Para onde vai?" required>
+              <input id="localDestino" name="destino" type="text" maxlength="200" placeholder="Para onde vai?" required>
             </div>
             <div class="field">
               <label for="viagemData">Data <span aria-hidden="true">*</span></label>
@@ -182,13 +206,17 @@
             </fieldset>
             <div class="field field--full">
               <label for="mensagem">Notas adicionais <span class="optional">(opcional)</span></label>
-              <textarea id="mensagem" name="mensagem" rows="3" placeholder="Alguma informação útil para a viagem?"></textarea>
+              <textarea id="mensagem" name="mensagem" rows="3" maxlength="1000" placeholder="Alguma informação útil para a viagem?"></textarea>
             </div>
           </div>
-          <label class="consent"><input type="checkbox" id="consentimento" required><span>Autorizo o envio destes dados à DANALB EXPRESS através do WhatsApp para tratar do meu pedido.</span></label>
-          <button class="button button--submit" type="submit">Continuar pelo WhatsApp <span aria-hidden="true">↗</span></button>
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="website">Deixe este campo vazio</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <label class="consent"><input type="checkbox" id="consentimento" name="consentimento" value="sim" required><span>Autorizo o envio dos dados deste formulário à DANALB Angola por e-mail para tratar do pedido.</span></label>
+          <button class="button button--submit" type="submit">Enviar pedido por e-mail <span aria-hidden="true">↗</span></button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-          <p class="form-note">O pedido só será recebido depois de enviar a mensagem no WhatsApp.</p>
+          <p class="form-note">O pedido será encaminhado para geral@danalbangola.com.</p>
         </form>
       </div>
     </section>
