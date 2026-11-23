@@ -1,829 +1,233 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-AO">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DANALB EXPRESS | Serviços de Táxi & Transporte Privado em Luanda</title>
-  <meta name="description" content="Serviços de táxi privado, transporte empresarial, colaboradores, gestores e deslocações com agendamento em Luanda. Pontualidade, segurança e conforto com a DANALB EXPRESS.">
-  <meta name="keywords" content="táxi luanda, transporte privado angola, danalb express, suzuki alto preto, táxi empresarial luanda">
-  
-  <!-- Favicon -->
+  <meta name="theme-color" content="#122c42">
+  <meta name="description" content="Transporte privado em Luanda para deslocações pessoais e empresariais. Consulte a DANALB EXPRESS e combine a sua viagem por telefone ou WhatsApp.">
+  <title>DANALB EXPRESS | Transporte privado em Luanda</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
-
-  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome 6 Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              navy: '#0A2559',
-              'navy-dark': '#06173B',
-              blue: '#0052CC',
-              'blue-royal': '#0047BA',
-              'blue-light': '#0066FF',
-              'blue-soft': '#EFF4FF',
-              orange: '#FF5B00',
-              'orange-hover': '#E65200',
-              'orange-soft': '#FFF4ED',
-              dark: '#1E293B',
-              heading: '#0A2559',
-              text: '#52525B',
-              kicker: '#0052CC'
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            heading: ['"Outfit"', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Custom CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-white text-slate-800 antialiased selection:bg-[#0A2559] selection:text-white">
-
-  <!-- ================= TOP BAR MINIMALISTA (AZUL CORPORATIVO) ================= -->
-  <div class="bg-[#0A2559] text-xs py-2.5 px-6 sm:px-12 text-slate-200">
-    <div class="max-w-[1440px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-      <div class="flex items-center gap-5">
-        <span class="flex items-center gap-1.5">
-          <i class="fa-solid fa-phone text-[#00C0FF] text-[11px]"></i>
-          <a href="tel:936611252" class="hover:text-white font-semibold transition-colors">936 611 252</a>
-        </span>
-        <span class="text-blue-300/40">•</span>
-        <span class="flex items-center gap-1.5">
-          <i class="fa-solid fa-envelope text-[#00C0FF] text-[11px]"></i>
-          <a href="mailto:geral@danalbangola.com" class="hover:text-white transition-colors">geral@danalbangola.com</a>
-        </span>
-      </div>
-      <div class="flex items-center gap-3">
-        <span class="inline-flex items-center gap-2 font-medium text-slate-200">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#FF5B00] animate-pulse"></span>
-          <span>Atendimento & Agendamentos</span>
-        </span>
-        <span class="text-blue-300/40">•</span>
-        <span class="text-blue-200/80">Luanda, Angola</span>
-      </div>
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Transporte privado em Luanda</span>
+      <a href="tel:+244936611252" aria-label="Ligar para mais 244 936 611 252">+244 936 611 252</a>
     </div>
   </div>
 
-  <!-- ================= HEADER COM A IDENTIDADE DA MARCA ================= -->
-  <header id="siteHeader" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md py-4 px-6 sm:px-12 transition-all">
-    <div class="max-w-[1440px] mx-auto flex items-center justify-between">
-      
-      <!-- Logótipo DANALB EXPRESS -->
-      <a href="#home" class="flex items-center gap-3">
-        <img src="assets/images/logo.svg" 
-             alt="DANALB EXPRESS - Serviços de Táxi" 
-             class="h-9 sm:h-11 w-auto object-contain">
+  <header class="site-header" id="siteHeader">
+    <div class="container site-header__inner">
+      <a class="brand" href="#inicio" aria-label="DANALB EXPRESS — página inicial">
+        <img src="assets/images/logo.svg" alt="DANALB EXPRESS" width="184" height="56">
       </a>
 
-      <!-- Menu Principal -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
-        <a href="#home" class="hover:text-[#0052CC] transition-colors">Início</a>
-        <a href="#servicos" class="hover:text-[#0052CC] transition-colors">Serviços</a>
-        <a href="#viatura" class="hover:text-[#0052CC] transition-colors">A Viatura</a>
-        <a href="#sobre" class="hover:text-[#0052CC] transition-colors">Sobre Nós</a>
-        <a href="#solicitar" class="hover:text-[#0052CC] transition-colors">Solicitar Transporte</a>
-        <a href="#contactos" class="hover:text-[#0052CC] transition-colors">Contactos</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+        <span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#viatura">A viatura</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#contactos">Contactos</a>
+        <a class="nav-cta" href="#pedido">Pedir transporte <span aria-hidden="true">↗</span></a>
       </nav>
-
-      <!-- Ações Rápidas -->
-      <div class="flex items-center gap-3">
-        <a href="tel:936611252" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-xl text-[#0A2559] hover:text-[#0052CC] transition-colors">
-          <i class="fa-solid fa-phone text-[#0052CC]"></i>
-          <span>936 611 252</span>
-        </a>
-        <a href="#solicitar" class="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#0A2559] hover:bg-[#0052CC] rounded-xl transition-all shadow-sm">
-          <span>Solicitar Táxi</span>
-          <i class="fa-solid fa-arrow-right text-[#FF5B00] text-[10px]"></i>
-        </a>
-      </div>
-
     </div>
   </header>
 
-  <!-- =========================================================================
-       1. HERO SECTION (AZUL PRINCIPAL DANALB + DESTAQUE LARANJA EXPRESS)
-       ========================================================================= -->
-  <section id="home" class="relative min-h-[calc(100vh-80px)] flex items-start bg-white overflow-hidden">
-    
-    <div class="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-16">
-      <div class="grid grid-cols-1 lg:grid-cols-12 items-start min-h-[580px] lg:min-h-[760px] gap-8">
-        
-        <!-- LADO ESQUERDO: CONTEÚDO OFICIAL -->
-        <div class="lg:col-span-6 z-20 max-w-xl pt-16 lg:pt-20 pb-10">
-          
-          <!-- TÍTULO PRINCIPAL (3 LINHAS EXATAS DA REFERÊNCIA) -->
-          <h1 class="font-heading text-4xl sm:text-5xl lg:text-[58px] font-black text-[#0A2559] leading-[1.12] tracking-tight mb-4">
-            Reserve o Seu Táxi<br>
-            com Rapidez e<br>
-            Segurança!
-          </h1>
-
-          <!-- LINHA DE IDENTIDADE DUPLA: AZUL DOMINANTE + LARANJA DESTAQUE -->
-          <div class="flex items-center gap-2 mb-6 mt-4">
-            <div class="w-12 h-1.5 bg-[#0A2559] rounded-full"></div>
-            <div class="w-4 h-1.5 bg-[#FF5B00] rounded-full"></div>
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero__layout">
+        <div class="hero__copy">
+          <p class="eyebrow"><span></span> DANALB EXPRESS · LUANDA</p>
+          <h1 id="hero-title">Chegue ao seu destino com tranquilidade.</h1>
+          <p class="hero__intro">Transporte privado para deslocações pessoais e empresariais, com partida, destino e horário combinados consigo.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#pedido">Pedir uma viagem <span aria-hidden="true">↗</span></a>
+            <a class="button button--text" href="tel:+244936611252">Ligar <span>+244 936 611 252</span></a>
           </div>
-
-          <!-- PARÁGRAFO -->
-          <p class="text-[#52525B] text-base sm:text-[17px] leading-relaxed mb-8 max-w-md font-normal">
-            Transporte privado em Luanda com motorista profissional. Para particulares e empresas, mediante agendamento ou chamada direta.
-          </p>
-
-          <!-- BOTÕES DE AÇÃO -->
-          <div class="flex flex-wrap items-center gap-4 mb-8">
-            
-            <!-- Botão Principal: sólido com seta circular -->
-            <a href="#solicitar" class="group inline-flex items-center gap-3 bg-[#0A2559] hover:bg-[#0047BA] text-white text-sm font-semibold pl-6 pr-2 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-200">
-              <span>Solicitar Transporte</span>
-              <span class="w-9 h-9 rounded-full bg-[#FF5B00] flex items-center justify-center flex-shrink-0 group-hover:bg-white transition-colors duration-200">
-                <i class="fa-solid fa-arrow-right text-white group-hover:text-[#FF5B00] text-xs transition-colors duration-200"></i>
-              </span>
-            </a>
-
-            <!-- Botão Secundário: ícone telefone + texto empilhado -->
-            <a href="tel:936611252" class="group inline-flex items-center gap-3">
-              <span class="w-11 h-11 rounded-full border-2 border-[#0A2559] flex items-center justify-center group-hover:bg-[#0A2559] transition-colors duration-200">
-                <i class="fa-solid fa-phone text-[#0A2559] group-hover:text-white text-sm transition-colors duration-200"></i>
-              </span>
-              <div class="text-left">
-                <span class="block text-[10px] text-slate-400 font-medium uppercase tracking-widest leading-none">Ligar Agora</span>
-                <span class="block text-sm font-bold text-[#0A2559] leading-tight mt-0.5">936 611 252</span>
-              </div>
-            </a>
-
-          </div>
-
-          <!-- Ligação Direta -->
-          <div class="pt-2 text-xs text-slate-500 flex items-center gap-1.5">
-            <span>Prefere ligar diretamente?</span>
-            <a href="tel:936611252" class="text-[#0052CC] font-bold hover:text-[#FF5B00] hover:underline inline-flex items-center gap-1">
-              <span>936 611 252</span>
-              <i class="fa-solid fa-arrow-right text-[#FF5B00] text-[10px]"></i>
-            </a>
-          </div>
-
+          <p class="hero__note">O seu pedido é combinado directamente com a nossa equipa.</p>
         </div>
 
-        <!-- LADO DIREITO (ESPAÇO GRID) -->
-        <div class="lg:col-span-6 relative flex items-center justify-end h-full"></div>
-
+        <figure class="hero__photo">
+          <img src="assets/images/d8b69083-7a4a-4a2f-8457-d968d3039d71.jpg" alt="Suzuki Alto preto da DANALB EXPRESS" fetchpriority="high">
+          <figcaption><span class="photo-marker" aria-hidden="true"></span><span>Viatura DANALB EXPRESS</span><span>Luanda, Angola</span></figcaption>
+        </figure>
       </div>
-    </div>
-
-    <!-- SLOT DA VIATURA (PREPARADO PARA VOCÊ COLAR O SEU CARRO) -->
-    <div id="carDropArea" class="car-slot-container">
-      <div class="relative w-full">
-        <img id="userCarImg" 
-             src="assets/images/d8b69083-7a4a-4a2f-8457-d968d3039d71-removebg-preview.png" 
-             onerror="checkCarFallback(this)"
-             alt="Viatura Oficial DANALB EXPRESS" 
-             class="w-full h-auto max-h-[420px] sm:max-h-[520px] lg:max-h-[640px] object-contain drop-shadow-2xl transition-all duration-300">
+      <div class="container hero__facts" aria-label="Informação sobre o serviço">
+        <div><span class="fact-index">01</span><span>Viagens com agendamento</span></div>
+        <div><span class="fact-index">02</span><span>Serviço para particulares e empresas</span></div>
+        <div><span class="fact-index">03</span><span>Contacto directo com a equipa</span></div>
       </div>
-    </div>
+    </section>
 
-  </section>
-
-  <!-- ================= BOTÃO FLUTUANTE DE WHATSAPP ================= -->
-  <a id="btnChatBubble" 
-     href="https://wa.me/244936611252?text=Ol%C3%A1%20DANALB%20EXPRESS%2C%20gostaria%20de%20solicitar%20um%20transporte" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     title="Conversar no WhatsApp Oficial" 
-     class="reference-chat-bubble"
-     aria-label="Abrir WhatsApp">
-    <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-    </svg>
-  </a>
-
-  <!-- ================= 2. SERVIÇOS (DESIGN EDITORIAL, AZUL PRINCIPAL & DESTAQUES) ================= -->
-  <section id="servicos" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-      
-      <!-- Cabeçalho -->
-      <div class="max-w-2xl mb-16">
-        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#0052CC] block mb-3">
-          O QUE FAZEMOS
-        </span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-black text-[#0A2559] leading-tight mb-4">
-          Serviços de Transporte Sob Medida
-        </h2>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-10 h-1 bg-[#0A2559] rounded-full"></div>
-          <div class="w-3 h-1 bg-[#FF5B00] rounded-full"></div>
+    <section class="section services" id="servicos" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> O QUE FAZEMOS</p>
+          <h2 id="services-title">Um serviço simples.<br>Feito à medida da sua deslocação.</h2>
+          <p>Partilhe os detalhes da viagem e combinamos consigo a melhor forma de a realizar.</p>
         </div>
-        <p class="text-[#52525B] text-base leading-relaxed">
-          Atendemos particulares, gestores e instituições com compromisso de pontualidade e discrição em Luanda.
-        </p>
+        <div class="services__grid">
+          <article class="service-item">
+            <span class="service-item__number">01</span>
+            <div>
+              <h3>Transporte privado</h3>
+              <p>Deslocações ponto a ponto em Luanda, com o percurso e o horário acordados antecipadamente.</p>
+            </div>
+            <a href="#pedido" aria-label="Pedir transporte privado">↗</a>
+          </article>
+          <article class="service-item">
+            <span class="service-item__number">02</span>
+            <div>
+              <h3>Transporte empresarial</h3>
+              <p>Deslocações para empresas e instituições, organizadas de acordo com as necessidades de cada pedido.</p>
+            </div>
+            <a href="#pedido" aria-label="Pedir transporte empresarial">↗</a>
+          </article>
+          <article class="service-item">
+            <span class="service-item__number">03</span>
+            <div>
+              <h3>Viagens agendadas</h3>
+              <p>Combine a data, a hora, a origem e o destino com antecedência, sujeito a confirmação de disponibilidade.</p>
+            </div>
+            <a href="#pedido" aria-label="Agendar uma viagem">↗</a>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <!-- Grelha de Serviços (Design Sem Bordas, Ícones Azuis Oficiais com Acentos) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        
-        <!-- Serviço 1: Táxi Privado -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#EFF4FF]/50 hover:shadow-xl transition-all duration-300 group">
-          <i class="fa-solid fa-taxi text-3xl text-[#0052CC] group-hover:text-[#FF5B00] transition-colors mb-6 block"></i>
-          <h3 class="font-heading text-xl font-bold text-[#0A2559] mb-3 group-hover:text-[#0052CC] transition-colors">
-            Táxi Privado
-          </h3>
-          <p class="text-[#52525B] text-sm leading-relaxed mb-6">
-            Deslocações urbanas exclusivas ponto a ponto. Conforto, ar condicionado e atendimento atencioso sem filas ou esperas.
-          </p>
-          <div class="text-xs text-slate-500 font-semibold space-y-1.5">
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Viagens diretas e exclusivas</p>
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Viatura higienizada e climatizada</p>
-          </div>
+    <section class="vehicle" id="viatura" aria-labelledby="vehicle-title">
+      <div class="container vehicle__layout">
+        <div class="vehicle__visual">
+          <img src="assets/images/d8b69083-7a4a-4a2f-8457-d968d3039d71-removebg-preview.png" alt="Suzuki Alto preto da frota DANALB EXPRESS" loading="lazy">
+          <span class="vehicle__caption">A nossa viatura</span>
         </div>
-
-        <!-- Serviço 2: Transporte Empresarial -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#EFF4FF]/50 hover:shadow-xl transition-all duration-300 group">
-          <i class="fa-solid fa-building text-3xl text-[#0052CC] group-hover:text-[#FF5B00] transition-colors mb-6 block"></i>
-          <h3 class="font-heading text-xl font-bold text-[#0A2559] mb-3 group-hover:text-[#0052CC] transition-colors">
-            Transporte Empresarial
-          </h3>
-          <p class="text-[#52525B] text-sm leading-relaxed mb-6">
-            Soluções logísticas para empresas e instituições públicas ou privadas, com rotas programadas e faturação organizada.
-          </p>
-          <div class="text-xs text-slate-500 font-semibold space-y-1.5">
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Acordos corporativos</p>
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Relatórios de deslocações</p>
-          </div>
+        <div class="vehicle__copy">
+          <p class="eyebrow"><span></span> CONFORTO NO PERCURSO</p>
+          <h2 id="vehicle-title">Compacta para a cidade. Preparada para a sua viagem.</h2>
+          <p>O Suzuki Alto da DANALB EXPRESS é uma opção prática para as deslocações do dia a dia em Luanda. Consulte a disponibilidade ao fazer o seu pedido.</p>
+          <ul class="vehicle__details">
+            <li><span>Lotação</span><strong>Até 4 passageiros</strong></li>
+            <li><span>Conforto</span><strong>Ar condicionado</strong></li>
+            <li><span>Manutenção</span><strong>Cuidados preventivos</strong></li>
+          </ul>
+          <a class="text-link" href="#pedido">Consultar disponibilidade <span aria-hidden="true">↗</span></a>
         </div>
-
-        <!-- Serviço 3: Colaboradores e Gestores -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#EFF4FF]/50 hover:shadow-xl transition-all duration-300 group">
-          <i class="fa-solid fa-user-tie text-3xl text-[#0052CC] group-hover:text-[#FF5B00] transition-colors mb-6 block"></i>
-          <h3 class="font-heading text-xl font-bold text-[#0A2559] mb-3 group-hover:text-[#0052CC] transition-colors">
-            Colaboradores e Gestores
-          </h3>
-          <p class="text-[#52525B] text-sm leading-relaxed mb-6">
-            Transporte corporativo dedicado para executivos e equipas de serviço externo com foco em pontualidade e discrição.
-          </p>
-          <div class="text-xs text-slate-500 font-semibold space-y-1.5">
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Segurança e pontualidade</p>
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Disponibilidade sob medida</p>
-          </div>
-        </div>
-
-        <!-- Serviço 4: Reuniões e Compromissos -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#EFF4FF]/50 hover:shadow-xl transition-all duration-300 group">
-          <i class="fa-solid fa-calendar-check text-3xl text-[#0052CC] group-hover:text-[#FF5B00] transition-colors mb-6 block"></i>
-          <h3 class="font-heading text-xl font-bold text-[#0A2559] mb-3 group-hover:text-[#0052CC] transition-colors">
-            Reuniões & Compromissos
-          </h3>
-          <p class="text-[#52525B] text-sm leading-relaxed mb-6">
-            Chegue a horas aos seus compromissos decisivos sem o desgaste de trânsito ou procura de estacionamento na cidade.
-          </p>
-          <div class="text-xs text-slate-500 font-semibold space-y-1.5">
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Planeamento de itinerário</p>
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Espera no local sob marcação</p>
-          </div>
-        </div>
-
-        <!-- Serviço 5: Agendamento Prévio -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#EFF4FF]/50 hover:shadow-xl transition-all duration-300 group">
-          <i class="fa-solid fa-clock-rotate-left text-3xl text-[#0052CC] group-hover:text-[#FF5B00] transition-colors mb-6 block"></i>
-          <h3 class="font-heading text-xl font-bold text-[#0A2559] mb-3 group-hover:text-[#0052CC] transition-colors">
-            Agendamento Prévio
-          </h3>
-          <p class="text-[#52525B] text-sm leading-relaxed mb-6">
-            Reserve com antecedência para garantir a viatura e o motorista na data e hora exatas da sua necessidade.
-          </p>
-          <div class="text-xs text-slate-500 font-semibold space-y-1.5">
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Confirmação com antecedência</p>
-            <p><i class="fa-solid fa-check text-[#0052CC] mr-2"></i>Compromisso sem falhas</p>
-          </div>
-        </div>
-
-        <!-- Serviço 6: Contacto Direto (Card Destaque em Azul Corporativo) -->
-        <div class="p-8 rounded-2xl bg-[#0A2559] text-white flex flex-col justify-between shadow-xl">
-          <div>
-            <i class="fa-solid fa-headset text-3xl text-[#FF5B00] mb-6 block"></i>
-            <h3 class="font-heading text-xl font-bold text-white mb-3">
-              Precisa de Transporte Agora?
-            </h3>
-            <p class="text-blue-100/80 text-sm leading-relaxed mb-6">
-              Fale diretamente com a nossa central de atendimento por chamada telefónica ou mensagem no WhatsApp.
-            </p>
-          </div>
-          <a href="tel:936611252" class="inline-flex items-center justify-center gap-2 w-full py-3.5 bg-[#FF5B00] hover:bg-[#E65200] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md">
-            <i class="fa-solid fa-phone"></i>
-            <span>Ligar 936 611 252</span>
-          </a>
-        </div>
-
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ================= 3. A VIATURA (SUZUKI ALTO PRETO - FOTOGRAFIA REAL, SEM BORDAS) ================= -->
-  <section id="viatura" class="py-24 bg-[#FAFAFA]">
-    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        <!-- Foto Real da Viatura (Moldura Limpa Sem Linhas) -->
-        <div class="lg:col-span-6">
-          <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white">
-            <img src="assets/images/suzuki-alto.jpg" 
-                 onerror="this.onerror=null; this.src='file:///C:/Users/Filipe Mafuila/.gemini/antigravity/brain/ad231d28-1871-4122-a4c4-f2680e1b96ff/.user_uploaded/media_1795359876623_3ba6e850.jpg'"
-                 alt="Suzuki Alto Preto - Frota Oficial DANALB EXPRESS" 
-                 class="w-full h-80 sm:h-96 object-cover object-center">
-            
-            <div class="p-5 flex items-center justify-between bg-white">
-              <div>
-                <p class="text-xs uppercase tracking-wider text-[#0052CC] font-bold">Viatura Oficial da Frota</p>
-                <h4 class="text-base font-bold text-[#0A2559]">Suzuki Alto Preto</h4>
-              </div>
-              <span class="text-xs font-bold text-[#FF5B00] bg-[#FFF4ED] px-3 py-1 rounded-full">Fotografia Real</span>
-            </div>
-          </div>
+    <section class="section about" id="sobre" aria-labelledby="about-title">
+      <div class="container about__layout">
+        <div>
+          <p class="eyebrow"><span></span> SOBRE A DANALB</p>
+          <h2 id="about-title">Pontualidade começa com uma boa combinação.</h2>
         </div>
-
-        <!-- Especificações (Ícones diretos no FontAwesome, Azul Corporativo) -->
-        <div class="lg:col-span-6">
-          <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#0052CC] block mb-3">
-            A NOSSA VIATURA
-          </span>
-          <h2 class="font-heading text-3xl sm:text-4xl font-black text-[#0A2559] leading-tight mb-4">
-            Suzuki Alto Preto: Ágil, Climatizado e Seguro
-          </h2>
-          <div class="flex items-center gap-2 mb-6">
-            <div class="w-10 h-1 bg-[#0A2559] rounded-full"></div>
-            <div class="w-3 h-1 bg-[#FF5B00] rounded-full"></div>
-          </div>
-          
-          <p class="text-[#52525B] text-base leading-relaxed mb-8">
-            Em conformidade com a diretriz oficial da DANALB EXPRESS, apresentamos a viatura real utilizada nos nossos serviços. Um automóvel compacto e ideal para navegar com rapidez no trânsito de Luanda, sempre com manutenção rigorosa e habitáculo higienizado.
-          </p>
-
-          <!-- Especificações sem molduras nos ícones (Azul Dominante) -->
-          <div class="grid grid-cols-2 gap-6 mb-8">
-            <div class="flex items-start gap-3.5">
-              <i class="fa-solid fa-users text-xl text-[#0052CC] mt-0.5"></i>
-              <div>
-                <h4 class="text-sm font-bold text-[#0A2559]">Lotação</h4>
-                <p class="text-xs text-[#52525B]">Até 4 passageiros</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3.5">
-              <i class="fa-solid fa-snowflake text-xl text-[#0052CC] mt-0.5"></i>
-              <div>
-                <h4 class="text-sm font-bold text-[#0A2559]">Ar Condicionado</h4>
-                <p class="text-xs text-[#52525B]">Potente e funcional</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3.5">
-              <i class="fa-solid fa-shield-halved text-xl text-[#0052CC] mt-0.5"></i>
-              <div>
-                <h4 class="text-sm font-bold text-[#0A2559]">Segurança</h4>
-                <p class="text-xs text-[#52525B]">Manutenção preventiva</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3.5">
-              <i class="fa-solid fa-sparkles text-xl text-[#0052CC] mt-0.5"></i>
-              <div>
-                <h4 class="text-sm font-bold text-[#0A2559]">Higienização</h4>
-                <p class="text-xs text-[#52525B]">Limpeza diária do interior</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="#solicitar" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0A2559] hover:bg-[#0052CC] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md">
-            <span>Solicitar Viagem Nesta Viatura</span>
-            <i class="fa-solid fa-arrow-right text-[#FF5B00] text-[10px]"></i>
-          </a>
+        <div class="about__copy">
+          <p>A DANALB EXPRESS presta serviços de transporte privado em Luanda. Cada pedido é tratado directamente com a equipa para alinhar o percurso, o horário e os detalhes da deslocação.</p>
+          <p>Para solicitar uma viagem, ligue-nos ou envie os dados pelo formulário. A equipa entrará em contacto para confirmar a disponibilidade.</p>
+          <a class="text-link" href="#contactos">Fale connosco <span aria-hidden="true">↗</span></a>
         </div>
-
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ================= 4. SOBRE NÓS / CONFIANÇA (EDITORIAL, AZUL CORPORATIVO) ================= -->
-  <section id="sobre" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        
-        <!-- Texto Institucional -->
-        <div class="lg:col-span-7">
-          <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#0052CC] block mb-3">
-            CONFIANÇA E PONTUALIDADE
-          </span>
-          <h2 class="font-heading text-3xl sm:text-4xl font-black text-[#0A2559] leading-tight mb-4">
-            Compromisso com Cada Cliente
-          </h2>
-          <div class="flex items-center gap-2 mb-6">
-            <div class="w-10 h-1 bg-[#0A2559] rounded-full"></div>
-            <div class="w-3 h-1 bg-[#FF5B00] rounded-full"></div>
-          </div>
-
-          <div class="space-y-4 text-[#52525B] text-base leading-relaxed mb-8">
-            <p>
-              A <strong>DANALB EXPRESS</strong> é uma marca focada na prestação de serviços de transporte e táxi privado em Luanda. Trabalhamos com compromisso genuíno de pontualidade e transparência, sem promessas não verificadas.
-            </p>
-            <p>
-              O tempo dos nossos passageiros é prioritário. Garantimos viatura em estado impecável, motorista profissional com condução responsável e cumprimento rigoroso dos horários agendados.
-            </p>
-          </div>
-
-          <div class="space-y-3 text-sm font-semibold text-[#0A2559]">
-            <p class="flex items-center gap-3">
-              <i class="fa-solid fa-check text-[#0052CC]"></i>
-              <span>Pontualidade assegurada nos agendamentos</span>
-            </p>
-            <p class="flex items-center gap-3">
-              <i class="fa-solid fa-check text-[#0052CC]"></i>
-              <span>Preços e itinerários acordados com clareza</span>
-            </p>
-            <p class="flex items-center gap-3">
-              <i class="fa-solid fa-check text-[#0052CC]"></i>
-              <span>Condução defensiva e respeito à privacidade</span>
-            </p>
-          </div>
+    <section class="booking" id="pedido" aria-labelledby="booking-title">
+      <div class="container booking__layout">
+        <div class="booking__intro">
+          <p class="eyebrow eyebrow--light"><span></span> RESERVA DE TRANSPORTE</p>
+          <h2 id="booking-title">Vamos combinar a sua próxima viagem.</h2>
+          <p>Indique os dados essenciais. No final, abriremos o WhatsApp com a mensagem pronta para enviar à equipa.</p>
+          <a class="booking__phone" href="tel:+244936611252"><span>Prefere ligar?</span>+244 936 611 252</a>
         </div>
 
-        <!-- Cartão de Contacto Direto (Sem Bordas, Acabamento Azul Corporativo) -->
-        <div class="lg:col-span-5">
-          <div class="p-8 rounded-2xl bg-[#F0F5FF]/70 shadow-sm">
-            <h3 class="font-heading text-xl font-bold text-[#0A2559] mb-6">
-              Contactos Oficiais
-            </h3>
-
-            <div class="space-y-5 text-sm">
-              <div class="flex items-start gap-4">
-                <i class="fa-solid fa-phone text-2xl text-[#0052CC] mt-1"></i>
-                <div>
-                  <span class="text-xs text-slate-500 uppercase tracking-wider font-bold block">Telefone</span>
-                  <a href="tel:936611252" class="text-lg font-black text-[#0A2559] hover:text-[#0052CC] transition-colors">
-                    936 611 252
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <i class="fa-brands fa-whatsapp text-2xl text-emerald-600 mt-1"></i>
-                <div>
-                  <span class="text-xs text-slate-500 uppercase tracking-wider font-bold block">WhatsApp</span>
-                  <a href="https://wa.me/244936611252" target="_blank" class="text-lg font-black text-emerald-600 hover:underline transition-colors">
-                    +244 936 611 252
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <i class="fa-solid fa-envelope text-2xl text-[#0052CC] mt-1"></i>
-                <div>
-                  <span class="text-xs text-slate-500 uppercase tracking-wider font-bold block">Correio Electrónico</span>
-                  <a href="mailto:geral@danalbangola.com" class="text-sm font-bold text-[#0A2559] hover:text-[#0052CC] transition-colors break-all">
-                    geral@danalbangola.com
-                  </a>
-                </div>
-              </div>
+        <form class="booking-form" id="bookingForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="clienteNome">Nome <span aria-hidden="true">*</span></label>
+              <input id="clienteNome" name="nome" type="text" autocomplete="name" placeholder="O seu nome" required>
             </div>
-
-            <div class="mt-8 pt-4">
-              <a href="#solicitar" class="inline-flex items-center justify-center gap-2 w-full py-3.5 bg-[#0A2559] hover:bg-[#0052CC] text-white rounded-xl text-xs font-bold uppercase tracking-wider text-center transition-all shadow-sm">
-                <span>Preencher Formulário de Viagem</span>
-                <i class="fa-solid fa-arrow-right text-[#FF5B00] text-[10px]"></i>
-              </a>
+            <div class="field">
+              <label for="clienteTelefone">Telefone / WhatsApp <span aria-hidden="true">*</span></label>
+              <input id="clienteTelefone" name="telefone" type="tel" autocomplete="tel" placeholder="Ex.: 936 611 252" required>
+            </div>
+            <div class="field">
+              <label for="localPartida">Local de partida <span aria-hidden="true">*</span></label>
+              <input id="localPartida" name="origem" type="text" placeholder="Bairro ou ponto de referência" required>
+            </div>
+            <div class="field">
+              <label for="localDestino">Destino <span aria-hidden="true">*</span></label>
+              <input id="localDestino" name="destino" type="text" placeholder="Para onde vai?" required>
+            </div>
+            <div class="field">
+              <label for="viagemData">Data <span aria-hidden="true">*</span></label>
+              <input id="viagemData" name="data" type="date" required>
+            </div>
+            <div class="field">
+              <label for="viagemHora">Hora <span aria-hidden="true">*</span></label>
+              <input id="viagemHora" name="hora" type="time" required>
+            </div>
+            <fieldset class="field field--full passenger-field">
+              <legend>Número de passageiros <span aria-hidden="true">*</span></legend>
+              <div class="passenger-options">
+                <label><input type="radio" name="passageiros" value="1" checked><span>1</span></label>
+                <label><input type="radio" name="passageiros" value="2"><span>2</span></label>
+                <label><input type="radio" name="passageiros" value="3"><span>3</span></label>
+                <label><input type="radio" name="passageiros" value="4"><span>4</span></label>
+              </div>
+            </fieldset>
+            <div class="field field--full">
+              <label for="mensagem">Notas adicionais <span class="optional">(opcional)</span></label>
+              <textarea id="mensagem" name="mensagem" rows="3" placeholder="Alguma informação útil para a viagem?"></textarea>
             </div>
           </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= 5. FORMULÁRIO DE SOLICITAÇÃO (ESPECIFICAÇÃO COMPLETA, SEM BORDAS) ================= -->
-  <section id="solicitar" class="py-24 bg-[#FAFAFA]">
-    <div class="max-w-4xl mx-auto px-6 sm:px-12">
-      
-      <div class="text-center mb-12">
-        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#0052CC] block mb-3">
-          AGENDAMENTO ONLINE
-        </span>
-        <h2 class="font-heading text-3xl sm:text-4xl font-black text-[#0A2559] leading-tight mb-3">
-          Solicitar Transporte
-        </h2>
-        <div class="flex items-center justify-center gap-2 mb-4">
-          <div class="w-10 h-1 bg-[#0A2559] rounded-full"></div>
-          <div class="w-3 h-1 bg-[#FF5B00] rounded-full"></div>
-        </div>
-        <p class="text-[#52525B] text-sm sm:text-base max-w-xl mx-auto">
-          Preencha os detalhes da sua viagem. A nossa equipa analisará e entrará em contacto de imediato.
-        </p>
-      </div>
-
-      <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-xl">
-        <form id="solicitarTransporteForm" novalidate>
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
-            <!-- Nome Completo -->
-            <div>
-              <label for="clienteNome" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Nome Completo <span class="text-red-500">*</span>
-              </label>
-              <input type="text" id="clienteNome" required placeholder="Ex: João da Silva"
-                     class="input-clean w-full">
-            </div>
-
-            <!-- Telefone -->
-            <div>
-              <label for="clienteTelefone" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Telefone / WhatsApp <span class="text-red-500">*</span>
-              </label>
-              <input type="tel" id="clienteTelefone" required placeholder="Ex: 936 611 252"
-                     class="input-clean w-full">
-            </div>
-
-            <!-- E-mail -->
-            <div>
-              <label for="clienteEmail" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                E-mail <span class="text-slate-400 font-normal lowercase">(opcional)</span>
-              </label>
-              <input type="email" id="clienteEmail" placeholder="exemplo@email.com"
-                     class="input-clean w-full">
-            </div>
-
-            <!-- Empresa -->
-            <div>
-              <label for="clienteEmpresa" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Empresa / Instituição <span class="text-slate-400 font-normal lowercase">(opcional)</span>
-              </label>
-              <input type="text" id="clienteEmpresa" placeholder="Se aplicável"
-                     class="input-clean w-full">
-            </div>
-
-            <!-- Local de Partida -->
-            <div>
-              <label for="localPartida" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Local de Partida (Origem) <span class="text-red-500">*</span>
-              </label>
-              <input type="text" id="localPartida" required placeholder="Ex: Maianga, Hotel X..."
-                     class="input-clean w-full">
-            </div>
-
-            <!-- Destino -->
-            <div>
-              <label for="localDestino" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Destino Pretendido <span class="text-red-500">*</span>
-              </label>
-              <input type="text" id="localDestino" required placeholder="Ex: Talatona, Aeroporto..."
-                     class="input-clean w-full">
-            </div>
-
-            <!-- Data da Viagem -->
-            <div>
-              <label for="viagemData" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Data da Deslocação <span class="text-red-500">*</span>
-              </label>
-              <input type="date" id="viagemData" required
-                     class="input-clean w-full">
-            </div>
-
-            <!-- Hora -->
-            <div>
-              <label for="viagemHora" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Horário Pretendido <span class="text-red-500">*</span>
-              </label>
-              <input type="time" id="viagemHora" required
-                     class="input-clean w-full">
-            </div>
-
-            <!-- Número de Passageiros (Azul Corporativo Ativo) -->
-            <div class="sm:col-span-2">
-              <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wider">
-                Número de Passageiros <span class="text-red-500">*</span> (Suzuki Alto: máx. 4)
-              </label>
-              <input type="hidden" id="numeroPassageiros" value="1">
-              <div class="grid grid-cols-4 gap-3">
-                <button type="button" data-count="1" class="passenger-btn py-3 rounded-xl bg-[#0A2559] text-white text-xs font-bold shadow-sm transition-all">1 Pessoa</button>
-                <button type="button" data-count="2" class="passenger-btn py-3 rounded-xl bg-[#F1F5F9] text-slate-700 text-xs font-bold hover:bg-[#E2E8F0] hover:text-[#0A2559] transition-all">2 Pessoas</button>
-                <button type="button" data-count="3" class="passenger-btn py-3 rounded-xl bg-[#F1F5F9] text-slate-700 text-xs font-bold hover:bg-[#E2E8F0] hover:text-[#0A2559] transition-all">3 Pessoas</button>
-                <button type="button" data-count="4" class="passenger-btn py-3 rounded-xl bg-[#F1F5F9] text-slate-700 text-xs font-bold hover:bg-[#E2E8F0] hover:text-[#0A2559] transition-all">4 Pessoas</button>
-              </div>
-            </div>
-
-            <!-- Observações -->
-            <div class="sm:col-span-2">
-              <label for="mensagemAdicional" class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Mensagem Adicional / Observações <span class="text-slate-400 font-normal lowercase">(opcional)</span>
-              </label>
-              <textarea id="mensagemAdicional" rows="3" placeholder="Ponto de referência, bagagem ou instruções especiais..."
-                        class="input-clean w-full"></textarea>
-            </div>
-          </div>
-
-          <!-- Consentimento de Privacidade -->
-          <div class="mb-6">
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" id="consentimento" required checked class="mt-1 h-4 w-4 rounded border-slate-300 text-[#0052CC] focus:ring-[#0052CC]">
-              <span class="text-xs text-slate-500 leading-normal">
-                Autorizo o tratamento dos dados fornecidos para efeitos exclusivos de contacto e execução da solicitação de transporte pela <strong>DANALB EXPRESS</strong>.
-              </span>
-            </label>
-          </div>
-
-          <button type="submit" id="btnSubmitForm" 
-                  class="w-full py-4 text-xs font-bold uppercase tracking-wider text-white bg-[#0A2559] hover:bg-[#0052CC] rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg">
-            <span>Enviar Solicitação de Transporte</span>
-            <i class="fa-solid fa-paper-plane text-[#FF5B00] text-xs"></i>
-          </button>
+          <label class="consent"><input type="checkbox" id="consentimento" required><span>Autorizo o envio destes dados à DANALB EXPRESS através do WhatsApp para tratar do meu pedido.</span></label>
+          <button class="button button--submit" type="submit">Continuar pelo WhatsApp <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-note">O pedido só será recebido depois de enviar a mensagem no WhatsApp.</p>
         </form>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ================= 6. CONTACTOS DIRECTOS (AZUL DOMINANTE) ================= -->
-  <section id="contactos" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 text-center">
-      
-      <div class="max-w-2xl mx-auto mb-16">
-        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#0052CC] block mb-3">
-          CANAIS DIRECTOS
-        </span>
-        <h2 class="font-heading text-3xl font-black text-[#0A2559] leading-tight mb-3">
-          Estamos Prontos para Atender
-        </h2>
-        <div class="flex items-center justify-center gap-2 mb-4">
-          <div class="w-10 h-1 bg-[#0A2559] rounded-full"></div>
-          <div class="w-3 h-1 bg-[#FF5B00] rounded-full"></div>
-        </div>
-        <p class="text-[#52525B] text-sm sm:text-base">
-          Escolha o canal mais conveniente para falar com a nossa equipa.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- Telefone (Ícone Azul Corporativo) -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#EFF4FF]/60 hover:shadow-xl transition-all duration-300 text-center">
-          <i class="fa-solid fa-phone text-3xl text-[#0052CC] mb-4 block"></i>
-          <h4 class="font-bold text-base text-[#0A2559] mb-1">Chamada Telefónica</h4>
-          <p class="text-xs text-slate-500 mb-4">Atendimento para solicitações e apoio</p>
-          <a href="tel:936611252" class="text-lg font-black text-[#0A2559] hover:text-[#0052CC] transition-colors">
-            936 611 252
-          </a>
-        </div>
-
-        <!-- WhatsApp (Ícone WhatsApp Oficial) -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#F0FDF4] hover:shadow-xl transition-all duration-300 text-center">
-          <i class="fa-brands fa-whatsapp text-3xl text-emerald-600 mb-4 block"></i>
-          <h4 class="font-bold text-base text-[#0A2559] mb-1">WhatsApp Oficial</h4>
-          <p class="text-xs text-slate-500 mb-4">Mensagens e confirmação rápida</p>
-          <a href="https://wa.me/244936611252?text=Ol%C3%A1%20DANALB%20EXPRESS%2C%20gostaria%20de%20solicitar%20um%20transporte" 
-             target="_blank" class="text-lg font-black text-emerald-600 hover:underline transition-colors">
-            +244 936 611 252
-          </a>
-        </div>
-
-        <!-- E-mail (Ícone Azul Corporativo) -->
-        <div class="p-8 rounded-2xl bg-[#FAFAFA] hover:bg-[#EFF4FF]/60 hover:shadow-xl transition-all duration-300 text-center">
-          <i class="fa-solid fa-envelope text-3xl text-[#0052CC] mb-4 block"></i>
-          <h4 class="font-bold text-base text-[#0A2559] mb-1">Correio Electrónico</h4>
-          <p class="text-xs text-slate-500 mb-4">Propostas e parcerias empresariais</p>
-          <a href="mailto:geral@danalbangola.com" class="text-sm font-bold text-[#0A2559] hover:text-[#0052CC] transition-colors break-all">
-            geral@danalbangola.com
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 7. RODAPÉ INSTITUCIONAL (AZUL NOTURNO CORPORATIVO) ================= -->
-  <footer class="bg-[#06173B] text-slate-400 py-14 text-xs">
-    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8">
+    <section class="section contact" id="contactos" aria-labelledby="contact-title">
+      <div class="container contact__layout">
         <div>
-          <img src="assets/images/logo.svg" alt="DANALB EXPRESS" class="h-10 w-auto brightness-110 mb-2">
-          <p class="text-xs text-slate-400 max-w-sm">
-            DANALB EXPRESS — Serviços de Transporte e Táxi Privado em Luanda, Angola.
-          </p>
+          <p class="eyebrow"><span></span> CONTACTOS</p>
+          <h2 id="contact-title">Estamos por aqui.</h2>
+          <p>Para esclarecer dúvidas, combinar uma viagem ou falar sobre transporte empresarial.</p>
         </div>
-        <div class="flex flex-wrap items-center gap-6 font-semibold text-slate-300">
-          <a href="#home" class="hover:text-[#00C0FF] transition-colors">Início</a>
-          <a href="#servicos" class="hover:text-[#00C0FF] transition-colors">Serviços</a>
-          <a href="#viatura" class="hover:text-[#00C0FF] transition-colors">A Viatura</a>
-          <a href="#sobre" class="hover:text-[#00C0FF] transition-colors">Sobre Nós</a>
-          <a href="#solicitar" class="hover:text-[#00C0FF] transition-colors">Solicitar Transporte</a>
-          <a href="#contactos" class="hover:text-[#00C0FF] transition-colors">Contactos</a>
+        <div class="contact__channels">
+          <a href="tel:+244936611252"><span>Telefone</span><strong>+244 936 611 252</strong><span class="contact-arrow" aria-hidden="true">↗</span></a>
+          <a href="https://wa.me/244936611252?text=Ol%C3%A1%20DANALB%20EXPRESS%2C%20gostaria%20de%20falar%20sobre%20uma%20viagem." target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>Enviar uma mensagem</strong><span class="contact-arrow" aria-hidden="true">↗</span></a>
+          <a href="mailto:geral@danalbangola.com"><span>E-mail</span><strong>geral@danalbangola.com</strong><span class="contact-arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-slate-500 text-[11px]">
-        <p>&copy; 2024 DANALB EXPRESS. Todos os direitos reservados.</p>
-        <p>Telefone: 936 611 252 • E-mail: geral@danalbangola.com</p>
-      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__main">
+      <a class="brand brand--footer" href="#inicio" aria-label="DANALB EXPRESS — voltar ao início">
+        <img src="assets/images/logo.svg" alt="DANALB EXPRESS" width="184" height="56" loading="lazy">
+      </a>
+      <p>Transporte privado em Luanda, Angola.</p>
+      <a href="#inicio" class="back-to-top">Voltar ao início ↑</a>
+    </div>
+    <div class="container site-footer__bottom">
+      <span>© <span id="currentYear">2026</span> DANALB EXPRESS. Todos os direitos reservados.</span>
+      <span>Luanda, Angola</span>
     </div>
   </footer>
 
-  <!-- ================= MODAL DE SUCESSO DO PEDIDO (SEM BORDAS) ================= -->
-  <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
-    <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl modal-animate relative">
-      
-      <button type="button" class="close-modal-btn absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-2 text-lg">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+  <a class="whatsapp-shortcut" href="https://wa.me/244936611252?text=Ol%C3%A1%20DANALB%20EXPRESS%2C%20gostaria%20de%20solicitar%20um%20transporte." target="_blank" rel="noopener noreferrer" aria-label="Falar com a DANALB EXPRESS pelo WhatsApp">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.5-4.7a8.5 8.5 0 1 1 16-4.1Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.8 8.3c.3-.5.6-.5.9-.5.2 0 .4 0 .6.5l.7 1.6c.1.3.1.5-.1.7l-.5.6c-.2.2-.2.4 0 .7.4.7 1 1.3 1.7 1.7.3.2.5.2.7-.1l.6-.7c.2-.2.4-.2.7-.1l1.5.7c.4.2.5.3.5.6 0 .4-.2 1-.7 1.3-.4.3-1 .5-1.7.4-1.1-.2-2.3-.8-3.5-1.9-1.2-1.1-2-2.5-2.2-3.5-.2-.8.1-1.5.4-2Z" fill="currentColor"/></svg>
+    <span>WhatsApp</span>
+  </a>
 
-      <div class="text-center mb-4">
-        <i class="fa-solid fa-circle-check text-4xl text-emerald-500"></i>
-      </div>
-
-      <h3 class="text-2xl font-black font-heading text-[#0A2559] text-center mb-1">
-        Solicitação Registada!
-      </h3>
-      <p class="text-xs text-slate-500 text-center mb-6">
-        O seu pedido foi recebido com sucesso na DANALB EXPRESS.
-      </p>
-
-      <div class="bg-[#F0F5FF]/60 rounded-xl p-4 text-xs space-y-2 mb-6">
-        <div class="flex justify-between items-center pb-2">
-          <span class="text-slate-500 font-medium">Ref. do Pedido:</span>
-          <span id="modalRefPedido" class="font-black text-[#0052CC] text-sm">#DAN-2024-0000</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-slate-500 font-medium">Passageiro:</span>
-          <span id="modalNome" class="font-bold text-slate-800">-</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-slate-500 font-medium">Telefone:</span>
-          <span id="modalTelefone" class="font-bold text-slate-800">-</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-slate-500 font-medium">Origem:</span>
-          <span id="modalPartida" class="font-bold text-slate-800">-</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-slate-500 font-medium">Destino:</span>
-          <span id="modalDestino" class="font-bold text-slate-800">-</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-slate-500 font-medium">Data e Hora:</span>
-          <span id="modalDataHora" class="font-bold text-slate-800">-</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-slate-500 font-medium">Passageiros:</span>
-          <span id="modalPassageiros" class="font-bold text-slate-800">-</span>
-        </div>
-      </div>
-
-      <div class="space-y-3">
-        <a id="btnModalWhatsApp" href="#" target="_blank" rel="noopener noreferrer" 
-           class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs transition-all">
-          <i class="fa-brands fa-whatsapp text-base"></i>
-          <span>Confirmar via WhatsApp Agora</span>
-        </a>
-
-        <button type="button" class="close-modal-btn w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-colors">
-          Fechar Janela
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Toast Notification Container -->
-  <div id="toastContainer" class="fixed top-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
-
-  <!-- Main JS -->
-  <script src="assets/js/main.js"></script>
-  <script>
-    // Fallback gracioso para a imagem do carro no slot
-    function checkCarFallback(img) {
-      if (img.src.includes('carro.png')) {
-        img.src = 'assets/images/carro.jpg';
-      } else if (img.src.includes('carro.jpg')) {
-        img.src = 'assets/images/hero-car.png';
-      } else {
-        img.style.display = 'none';
-        var shadow = document.getElementById('carShadow');
-        if (shadow) shadow.style.display = 'none';
-      }
-    }
-  </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
