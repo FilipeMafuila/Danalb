@@ -1,0 +1,224 @@
+/* DANALB EXPRESS - Identidade Oficial: Azul Dominante & Laranja de Destaque */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Azul Dominante / Principal (DANALB) */
+  --brand-navy: #0A2559;
+  --brand-navy-dark: #06173B;
+  --brand-blue: #0052CC;
+  --brand-blue-royal: #0047BA;
+  --brand-blue-light: #0066FF;
+  --brand-blue-soft: #EFF4FF;
+  
+  /* Laranja de Destaque / Ação (EXPRESS) */
+  --brand-orange: #FF5B00;
+  --brand-orange-hover: #E65200;
+  --brand-orange-soft: #FFF4ED;
+  
+  /* Neutros & Escuros */
+  --brand-dark: #1E293B;
+  --brand-text: #52525B;
+  --brand-gray: #64748B;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #FFFFFF;
+  color: #1E293B;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* =======================================================
+   A MOLDURA DA HOME (AZUL DOMINANTE — ESTILO REFERÊNCIA)
+   ======================================================= */
+
+.perfect-orange-frame,
+.perfect-brand-frame {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50vw;
+  min-width: 480px;
+  max-width: 760px;
+  background: linear-gradient(150deg, #0A2559 0%, #0047BA 55%, #0066FF 100%);
+  border-top-left-radius: 56px;
+  border-bottom-left-radius: 0;
+  border: none;
+  overflow: hidden;
+  box-shadow: -18px 0 50px -10px rgba(10, 37, 89, 0.28);
+  z-index: 10;
+}
+
+@media (max-width: 1023px) {
+  .perfect-orange-frame,
+  .perfect-brand-frame {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: 340px;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    border-bottom-left-radius: 0;
+    border: none;
+    margin-top: 20px;
+  }
+}
+
+/* Marca d'água circular suave no fundo da moldura azul */
+.perfect-orange-frame::before,
+.perfect-brand-frame::before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: -8%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  border: 50px solid rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+
+/* Linhas de velocidade laranja — inspiradas no logótipo DANALB EXPRESS */
+.perfect-orange-frame::after,
+.perfect-brand-frame::after {
+  content: "";
+  position: absolute;
+  top: 42%;
+  left: 28px;
+  width: 48px;
+  height: 4px;
+  background-color: #FF5B00;
+  border-radius: 9999px;
+  box-shadow: 
+    0 -13px 0 0 #FF5B00,
+    0 13px 0 0 #FF5B00;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Slot do Carro — sobrepõe moldura, posicionado no topo */
+.car-slot-container {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 56vw;
+  min-width: 500px;
+  max-width: 860px;
+  z-index: 20;
+  border: none;
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .car-slot-container {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-top: -260px;
+  }
+}
+
+/* Sombra de chão suave para o carro */
+.car-ground-shadow {
+  width: 85%;
+  height: 34px;
+  margin: -22px auto 0 auto;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 72%);
+  filter: blur(8px);
+  pointer-events: none;
+  border: none;
+}
+
+/* Botão Flutuante de Chat Azul da Referência */
+.reference-chat-bubble {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #0052CC;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 204, 0.45);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  border: none;
+}
+
+.reference-chat-bubble:hover {
+  transform: scale(1.1);
+  background-color: #0747A6;
+  box-shadow: 0 15px 30px -5px rgba(0, 82, 204, 0.6);
+}
+
+/* Store Badges */
+.store-badge {
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+.store-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(10, 37, 89, 0.25);
+}
+
+/* Inputs Sem Bordas Duras - Foco no Azul Dominante */
+.input-clean {
+  background-color: #F1F5F9;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #0F172A;
+  transition: all 0.2s ease-in-out;
+}
+.input-clean:focus {
+  outline: none;
+  background-color: #FFFFFF;
+  border-color: #0052CC;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+}
+
+/* Modal animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-animate {
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
