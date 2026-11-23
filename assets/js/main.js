@@ -39,28 +39,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!bookingForm) return;
 
-  bookingForm.addEventListener("submit", (event) => {
+  bookingForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!bookingForm.reportValidity()) return;
 
-    const formData = new FormData(bookingForm);
-    const date = String(formData.get("data"));
-    const [year, month, day] = date.split("-");
-    const message = [
-      "*Pedido de transporte — DANALB EXPRESS*",
-      "",
-      `*Nome:* ${formData.get("nome")}`,
-      `*Telefone:* ${formData.get("telefone")}`,
-      `*Origem:* ${formData.get("origem")}`,
-      `*Destino:* ${formData.get("destino")}`,
-      `*Data:* ${day}/${month}/${year}`,
-      `*Hora:* ${formData.get("hora")}`,
-      `*Passageiros:* ${formData.get("passageiros")}`,
-      formData.get("mensagem") ? `*Notas:* ${formData.get("mensagem")}` : "",
-    ].filter(Boolean).join("\n");
+    const submitButton = bookingForm.querySelector('button[type="submit"]');
+    const formData = Object.fromEntries(new FormData(bookingForm).entries());
+    submitButton.disabled = true;
+    submitButton.setAttribute("aria-busy", "true");
+    submitButton.innerHTML = 'A enviar pedido <span aria-hidden="true">…</span>';
+    formStatus.dataset.state = "sending";
+    formStatus.textContent = "A enviar o pedido por e-mail…";
 
-    const whatsappUrl = `https://wa.me/244936611252?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-    formStatus.textContent = "O WhatsApp foi aberto com os dados da viagem. Envie a mensagem para concluir o pedido.";
+    try {
+      const response = await fetch("/api/transport-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) throw new Error(result.message || "Pedido não enviado");
+
+      formStatus.dataset.state = "success";
+      formStatus.textContent = result.message;
+      bookingForm.reset();
+    } catch {
+      formStatus.dataset.state = "error";
+      formStatus.textContent = "Não foi possível enviar o pedido. Tente novamente ou contacte-nos por telefone.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.removeAttribute("aria-busy");
+      submitButton.innerHTML = 'Enviar pedido por e-mail <span aria-hidden="true">↗</span>';
+    }
   });
 });
