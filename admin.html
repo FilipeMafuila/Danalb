@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A2559">
+  <title>Painel de Gestão · DANALB EXPRESS</title>
+  <link rel="icon" type="image/png" href="assets/images/1_logotipo_sem_fundo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Modal de Login -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="assets/images/1_logotipo_sem_fundo.png" alt="DANALB EXPRESS" class="login-logo">
+        <p class="eyebrow" style="justify-content: center; margin: 12px 0 6px;"><span></span> ÁREA RESTRITA</p>
+        <h2>Painel de Gestão</h2>
+        <p class="login-sub">Administração, reservas e despacho da frota em Luanda</p>
+      </div>
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="loginEmail">E-mail ou Utilizador</label>
+          <input type="text" id="loginEmail" required value="admin@danalb.com" placeholder="exemplo@danalbangola.com">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Palavra-passe</label>
+          <input type="password" id="loginPassword" required value="danalb2026" placeholder="••••••••">
+        </div>
+        <div class="login-tip">
+          <span>Dica de acesso:</span> Utilize <code>admin@danalb.com</code> e <code>danalb2026</code>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Entrar no Painel <span aria-hidden="true">↗</span></button>
+      </form>
+      <div class="login-footer">
+        <a href="index.html">← Voltar ao site público</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backdrop da Sidebar em Mobile -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- Estrutura Principal do Painel -->
+  <div class="admin-layout" id="adminLayout">
+    
+    <!-- Barra Lateral (Sidebar) -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-brand">
+        <a href="admin.html" class="brand-link">
+          <img src="assets/images/1_logotipo_sem_fundo.png" alt="DANALB EXPRESS" class="sidebar-logo">
+        </a>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Fechar menu">✕</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item is-active" data-tab="dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-tab="pedidos">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Pedidos de Viagens</span>
+          <span class="nav-badge" id="pendingOrdersBadge">0</span>
+        </button>
+        <button class="nav-item" data-tab="viatura">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          <span>Viatura & 4 Ângulos</span>
+        </button>
+        <button class="nav-item" data-tab="contactos">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Contactos & Empresa</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="sidebar-ext-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Ver Site Público</span>
+        </a>
+        <button class="sidebar-logout-btn" id="logoutBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Sair</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Área de Conteúdo -->
+    <div class="admin-main">
+      
+      <!-- Faixa Superior Estilo Site Principal -->
+      <div class="admin-top-strip">
+        <div class="admin-top-strip__inner">
+          <span>DANALB EXPRESS · SISTEMA DE GESTÃO E DESPACHO</span>
+          <div class="admin-top-strip__right">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Operações em Luanda</span>
+            <span class="system-clock" id="systemClock">--:--:--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topbar do Painel Estilo Site Principal -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir navegação">
+            <span></span><span></span><span></span>
+          </button>
+          <div>
+            <p class="eyebrow" style="margin-bottom: 4px;"><span></span> DANALB EXPRESS · PAINEL</p>
+            <h1 class="page-title" id="pageTitle">Dashboard Geral</h1>
+            <p class="page-subtitle" id="pageSubtitle">Acompanhe as viagens e o estado das operações em Luanda</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button class="btn btn--primary btn--sm" id="btnNovoPedidoTop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Novo Pedido</span>
+            <span aria-hidden="true" style="color: var(--accent); font-weight: 700; margin-left: 2px;">↗</span>
+          </button>
+          <div class="user-profile">
+            <div class="user-avatar">DA</div>
+            <div class="user-meta">
+              <span class="user-name">Administrador</span>
+              <span class="user-role">Despacho Luanda</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Conteúdo das Abas -->
+      <main class="admin-content">
+
+        <!-- ABA 1: DASHBOARD -->
+        <section class="tab-pane is-active" id="tab-dashboard">
+          
+          <!-- Cards de Métricas (KPIs) -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon kpi-icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-label">Viagens Registadas</span>
+                <strong class="kpi-value" id="kpiTotalViagens">0</strong>
+                <span class="kpi-note kpi-note--positive">+100% no sistema</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon kpi-icon--orange">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-label">Pedidos Pendentes</span>
+                <strong class="kpi-value" id="kpiPendentes">0</strong>
+                <span class="kpi-note kpi-note--alert">Requer contacto imediato</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon kpi-icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-label">Concluídas com Sucesso</span>
+                <strong class="kpi-value" id="kpiConcluidas">0</strong>
+                <span class="kpi-note kpi-note--positive">Clientes satisfeitos</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon kpi-icon--navy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-label">Faturação Estimada</span>
+                <strong class="kpi-value" id="kpiFaturacao">0 Kz</strong>
+                <span class="kpi-note">Baseada nas viagens concluídas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grade de Destaques do Dashboard -->
+          <div class="dashboard-split">
+            
+            <!-- Últimos Pedidos -->
+            <div class="panel-card panel-card--wide">
+              <div class="panel-card__header">
+                <div>
+                  <h2 class="panel-title">Últimos Pedidos Recebidos</h2>
+                  <p class="panel-desc">Ações diretas para contacto telefónico ou WhatsApp</p>
+                </div>
+                <button class="btn btn--outline btn--sm" onclick="app.switchTab('pedidos')">Ver Todos os Pedidos →</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Cliente</th>
+                      <th>Percurso (Origem → Destino)</th>
+                      <th>Data / Hora</th>
+                      <th>Passageiros</th>
+                      <th>Estado</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dashboardRecentTableBody">
+                    <!-- Gerado via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Resumo da Frota -->
+            <div class="panel-card">
+              <div class="panel-card__header">
+                <div>
+                  <h2 class="panel-title">Estado da Frota</h2>
+                  <p class="panel-desc">Viaturas ativas para Luanda</p>
+                </div>
+                <button class="btn btn--outline btn--sm" onclick="app.switchTab('viatura')">Gerir Viatura & Fotos →</button>
+              </div>
+              <div class="fleet-mini-list" id="dashboardFleetList">
+                <!-- Gerado via JS -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ABA 2: PEDIDOS DE VIAGENS -->
+        <section class="tab-pane" id="tab-pedidos">
+          <div class="panel-card">
+            <div class="panel-toolbar">
+              <!-- Filtros de Pesquisa -->
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="orderSearchInput" placeholder="Pesquisar por cliente, telefone, destino...">
+              </div>
+
+              <!-- Filtro de Estado -->
+              <div class="status-filters" id="statusFilterButtons">
+                <button class="filter-btn is-active" data-status="todos">Todos (<span id="countTodos">0</span>)</button>
+                <button class="filter-btn" data-status="Pendente">Pendentes (<span id="countPendente">0</span>)</button>
+                <button class="filter-btn" data-status="Confirmada">Confirmadas (<span id="countConfirmada">0</span>)</button>
+                <button class="filter-btn" data-status="Em Curso">Em Curso (<span id="countEmCurso">0</span>)</button>
+                <button class="filter-btn" data-status="Concluída">Concluídas (<span id="countConcluida">0</span>)</button>
+                <button class="filter-btn" data-status="Cancelada">Canceladas (<span id="countCancelada">0</span>)</button>
+              </div>
+
+              <!-- Ações da Barra -->
+              <div class="toolbar-actions">
+                <button class="btn btn--outline btn--sm" id="btnExportCSV">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Exportar CSV</span>
+                </button>
+                <button class="btn btn--primary btn--sm" id="btnNovoPedidoMain">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>Novo Pedido</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tabela Principal de Pedidos -->
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Ref.</th>
+                    <th>Cliente / Contacto</th>
+                    <th>Origem → Destino</th>
+                    <th>Data & Horário</th>
+                    <th>Pass.</th>
+                    <th>Valor (Kz)</th>
+                    <th>Estado</th>
+                    <th style="text-align: right;">Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                  <!-- Gerado via JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-empty-state" id="tableEmptyState" style="display: none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              <h3>Nenhum pedido encontrado</h3>
+              <p>Tente ajustar os filtros ou registe um novo pedido.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABA 3: VIATURA & 4 ÂNGULOS (REFLETE DIRETO NO SITE) -->
+        <section class="tab-pane" id="tab-viatura">
+          <div class="panel-card" style="margin-bottom: 24px;">
+            <div class="panel-card__header">
+              <div>
+                <p class="eyebrow"><span></span> GESTÃO DA FROTA OFICIAL</p>
+                <h2 class="panel-title">Suzuki Alto Preto · LDA-89-AE</h2>
+                <p class="panel-desc">Altere o estado operacional, matrícula e características. As alterações refletem imediatamente na página inicial.</p>
+              </div>
+            </div>
+
+            <form id="vehicleDetailsForm" class="settings-form">
+              <div class="form-grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                <div class="form-group">
+                  <label for="adminVehModelo">Modelo</label>
+                  <input type="text" id="adminVehModelo" value="Suzuki Alto 800" required>
+                </div>
+                <div class="form-group">
+                  <label for="adminVehMatricula">Matrícula</label>
+                  <input type="text" id="adminVehMatricula" value="LDA-89-AE" required>
+                </div>
+                <div class="form-group">
+                  <label for="adminVehCor">Cor Oficial</label>
+                  <input type="text" id="adminVehCor" value="Preto Metalizado" required>
+                </div>
+                <div class="form-group">
+                  <label for="adminVehAno">Ano</label>
+                  <input type="number" id="adminVehAno" value="2022">
+                </div>
+                <div class="form-group">
+                  <label for="adminVehKm">Quilometragem (Km)</label>
+                  <input type="number" id="adminVehKm" value="45200">
+                </div>
+                <div class="form-group">
+                  <label for="adminVehStatus">Disponibilidade no Site</label>
+                  <select id="adminVehStatus">
+                    <option value="Disponível">Disponível (Verde)</option>
+                    <option value="Em Viagem">Em Viagem (Âmbar)</option>
+                    <option value="Manutenção">Em Manutenção (Vermelho)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- GESTÃO DOS 4 ÂNGULOS DO CARRO -->
+              <div style="margin-top: 32px; border-top: 1px solid var(--line); padding-top: 24px;">
+                <div style="margin-bottom: 18px;">
+                  <h3 style="font-size: 16px; margin: 0 0 6px; font-weight: 600; color: var(--ink);">Fotos dos 4 Ângulos da Viatura (Carrossel do Site)</h3>
+                  <p style="font-size: 13px; color: var(--ink-soft); margin: 0;">Pode carregar uma foto nova do seu telemóvel/computador ou introduzir o caminho da imagem. Estas fotos atualizam os 4 slides da viatura no site.</p>
+                </div>
+
+                <div class="angles-editor-grid" id="anglesEditorGrid">
+                  <!-- Gerado e atualizado via JS -->
+                </div>
+              </div>
+
+              <div style="margin-top: 28px; display: flex; align-items: center; gap: 16px;">
+                <button type="submit" class="btn btn--primary">
+                  <span>Guardar Viatura e Atualizar Site</span>
+                  <span aria-hidden="true" style="color: var(--accent); font-weight: 700;">↗</span>
+                </button>
+                <span class="settings-save-msg" id="vehicleSaveMsg"></span>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ABA 4: CONTACTOS & EMPRESA (REFLETE DIRETO NO SITE) -->
+        <section class="tab-pane" id="tab-contactos">
+          <div class="settings-grid">
+            <div class="panel-card">
+              <div class="panel-card__header">
+                <div>
+                  <p class="eyebrow"><span></span> IDENTIFICAÇÃO OFICIAL</p>
+                  <h2 class="panel-title">Contactos e Dados da DANALB Angola</h2>
+                  <p class="panel-desc">Estes dados refletem diretamente no topo, rodapé, botões de chamada e WhatsApp do site.</p>
+                </div>
+              </div>
+              <form id="settingsForm" class="settings-form">
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="setCompanyName">Nome Comercial</label>
+                    <input type="text" id="setCompanyName" value="DANALB Angola · DANALB EXPRESS" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="setPhone">Telefone Principal (Chamadas)</label>
+                    <input type="tel" id="setPhone" value="+244 936 611 252" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="setWhatsApp">WhatsApp para Pedidos (sem espaços ou +)</label>
+                    <input type="tel" id="setWhatsApp" value="244936611252" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="setEmail">E-mail Oficial</label>
+                    <input type="email" id="setEmail" value="geral@danalbangola.com" required>
+                  </div>
+                  <div class="form-group form-group--full">
+                    <label for="setAddress">Localização / Base</label>
+                    <input type="text" id="setAddress" value="Luanda, Angola">
+                  </div>
+                </div>
+                <div style="margin-top: 20px; display: flex; align-items: center; gap: 16px;">
+                  <button type="submit" class="btn btn--primary">
+                    <span>Guardar Contactos e Atualizar Site</span>
+                    <span aria-hidden="true" style="color: var(--accent); font-weight: 700;">↗</span>
+                  </button>
+                  <span class="settings-save-msg" id="settingsSaveMsg"></span>
+                </div>
+              </form>
+            </div>
+
+            <div class="panel-card">
+              <div class="panel-card__header">
+                <div>
+                  <h2 class="panel-title">Backup e Base de Dados Local</h2>
+                  <p class="panel-desc">Faça cópias de segurança de todos os pedidos e viaturas registadas.</p>
+                </div>
+              </div>
+              <div class="backup-actions">
+                <p>Todos os pedidos submetidos no site e definições operacionais estão salvos no navegador via <strong>localStorage</strong>.</p>
+                <div class="backup-btn-group" style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+                  <button class="btn btn--outline" id="btnDownloadBackup">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Descarregar Backup (.JSON)</span>
+                  </button>
+                  <button class="btn btn--outline" id="btnResetDemoData" style="color: var(--red); border-color: var(--red);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                    <span>Restaurar Dados Originais</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: REGISTAR / EDITAR PEDIDO -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="orderModalTitle">Registar Novo Pedido de Viagem</h3>
+        <button class="modal-close-btn" onclick="app.closeModal('orderModal')">✕</button>
+      </div>
+      <form id="orderForm" class="modal-form">
+        <input type="hidden" id="orderEditId">
+        
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="orderNome">Nome do Cliente *</label>
+            <input type="text" id="orderNome" required placeholder="Ex.: Dr. António Silva">
+          </div>
+          <div class="form-group">
+            <label for="orderTelefone">Telefone / WhatsApp *</label>
+            <input type="tel" id="orderTelefone" required placeholder="Ex.: 936 611 252">
+          </div>
+          <div class="form-group">
+            <label for="orderEmail">E-mail</label>
+            <input type="email" id="orderEmail" placeholder="cliente@empresa.com">
+          </div>
+          <div class="form-group">
+            <label for="orderEmpresa">Empresa / Instituição</label>
+            <input type="text" id="orderEmpresa" placeholder="Nome da empresa ou particular">
+          </div>
+          <div class="form-group">
+            <label for="orderOrigem">Local de Partida *</label>
+            <input type="text" id="orderOrigem" required placeholder="Ex.: Talatona, Condomínio Morro Bento">
+          </div>
+          <div class="form-group">
+            <label for="orderDestino">Destino *</label>
+            <input type="text" id="orderDestino" required placeholder="Ex.: Aeroporto 4 de Fevereiro">
+          </div>
+          <div class="form-group">
+            <label for="orderData">Data da Viagem *</label>
+            <input type="date" id="orderData" required>
+          </div>
+          <div class="form-group">
+            <label for="orderHora">Hora *</label>
+            <input type="time" id="orderHora" required>
+          </div>
+          <div class="form-group">
+            <label for="orderPassageiros">Número de Passageiros *</label>
+            <select id="orderPassageiros" required>
+              <option value="1">1 passageiro</option>
+              <option value="2">2 passageiros</option>
+              <option value="3">3 passageiros</option>
+              <option value="4">4 passageiros (Lotação Máx.)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="orderValor">Valor Estimado (AOA)</label>
+            <input type="number" id="orderValor" placeholder="Ex.: 12000" step="500">
+          </div>
+          <div class="form-group">
+            <label for="orderStatus">Estado do Pedido</label>
+            <select id="orderStatus">
+              <option value="Pendente">Pendente</option>
+              <option value="Confirmada">Confirmada</option>
+              <option value="Em Curso">Em Curso</option>
+              <option value="Concluída">Concluída</option>
+              <option value="Cancelada">Cancelada</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="orderViatura">Viatura Atribuída</label>
+            <select id="orderViatura">
+              <option value="">(A definir no despacho)</option>
+              <option value="Suzuki Alto (LDA-89-AE)">Suzuki Alto (LDA-89-AE)</option>
+            </select>
+          </div>
+          <div class="form-group form-group--full">
+            <label for="orderMensagem">Notas Adicionais / Requisitos</label>
+            <textarea id="orderMensagem" rows="2" placeholder="Bagagem volumosa, voo TAAG às 14h, etc."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn--outline" onclick="app.closeModal('orderModal')">Cancelar</button>
+          <button type="submit" class="btn btn--primary">Guardar Pedido</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notificação Toast Flutuante -->
+  <div class="toast-notification" id="toastNotification">Operação concluída com sucesso!</div>
+
+  <script type="module" src="assets/js/firebase-service.js"></script>
+  <script src="assets/js/admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A2559">
+  <title>Personalização da Viatura · DANALB EXPRESS</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A2559;
+      --navy-dark: #061838;
+      --orange: #FF5E00;
+      --orange-light: #FF7A29;
+      --slate-dark: #1E293B;
+      --slate-text: #475569;
+      --slate-muted: #64748B;
+      --bg-page: #EDF2F7;
+      --card-bg: #FFFFFF;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sheet: 0 16px 48px -12px rgba(10, 37, 89, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--slate-dark);
+      line-height: 1.5;
+      padding: 32px 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Barra superior de ações (não impressa) */
+    .action-bar {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .action-bar .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      background: white;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+
+    .action-bar .back-link:hover {
+      background: var(--navy);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .action-bar .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: white;
+      border: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 94, 0, 0.28);
+      transition: all 0.2s;
+    }
+
+    .action-bar .btn-print:hover {
+      background: #e65200;
+      transform: translateY(-1px);
+    }
+
+    /* Prancha Principal no estilo do modelo da gráfica */
+    .sheet {
+      width: 100%;
+      max-width: 1100px;
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4.5vw, 48px);
+      box-shadow: var(--shadow-sheet);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+    }
+
+    /* Cabeçalho da Prancha */
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-bottom: 8px;
+    }
+
+    .sheet-brand img {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+
+    .sheet-title-group {
+      text-align: right;
+    }
+
+    .sheet-title {
+      font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+      font-size: clamp(24px, 2.8vw, 34px);
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .sheet-subtitle {
+      font-size: clamp(14px, 1.4vw, 17px);
+      font-weight: 600;
+      color: var(--slate-text);
+      margin-top: 4px;
+    }
+
+    .sheet-title-line {
+      width: 140px;
+      height: 4px;
+      background: var(--orange);
+      margin-top: 10px;
+      margin-left: auto;
+      border-radius: 2px;
+    }
+
+    /* Grid com os 4 ângulos fotográficos */
+    .grid-photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 24px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-photos {
+        grid-template-columns: 1fr;
+      }
+      .sheet-title-group {
+        text-align: left;
+      }
+      .sheet-title-line {
+        margin-left: 0;
+      }
+    }
+
+    .photo-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .photo-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10.5;
+      background: #0f172a;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .photo-wrapper:hover img {
+      transform: scale(1.02);
+    }
+
+    .photo-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 32px;
+      height: 32px;
+      background: var(--orange);
+      color: white;
+      font-weight: 800;
+      font-size: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    .photo-info {
+      padding: 0 4px;
+    }
+
+    .photo-title {
+      font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .photo-desc {
+      font-size: 13.5px;
+      color: var(--slate-muted);
+      line-height: 1.4;
+    }
+
+    /* Bloco Inferior de Especificações / Contactos */
+    .specs-banner {
+      background: var(--navy);
+      color: white;
+      border-radius: var(--radius-md);
+      padding: clamp(24px, 3.5vw, 36px) clamp(24px, 4vw, 42px);
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .specs-banner::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255, 94, 0, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .specs-banner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .specs-col-header {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .contact-phone {
+      font-size: clamp(24px, 2.6vw, 34px);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .contact-item {
+      font-size: clamp(15px, 1.3vw, 18px);
+      font-weight: 700;
+      color: #FFFFFF;
+      display: block;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    .contact-item:hover, .contact-phone:hover {
+      color: var(--orange-light);
+    }
+
+    .measure-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .measure-list li {
+      font-size: clamp(14px, 1.2vw, 16px);
+      color: #E2E8F0;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .measure-list li strong {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    .measure-alert {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #94A3B8;
+      font-style: italic;
+    }
+
+    /* Rodapé com nota técnica */
+    .sheet-footer {
+      font-size: 12px;
+      color: var(--slate-muted);
+      line-height: 1.5;
+      padding-top: 6px;
+    }
+
+    /* Modos de impressão (A4 Paisagem fiel à prancha da gráfica) */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .sheet {
+        box-shadow: none;
+        padding: 20px;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .photo-wrapper {
+        box-shadow: none;
+      }
+      .specs-banner {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page {
+        size: A4 landscape;
+        margin: 10mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Ações Rápidas -->
+  <div class="action-bar">
+    <a href="index.html" class="back-link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Voltar ao Site Principal
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Imprimir / PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Prancha Gráfica Oficial -->
+  <main class="sheet">
+    <!-- Cabeçalho -->
+    <header class="sheet-header">
+      <div class="sheet-brand">
+        <img src="assets/images/logo.svg" alt="DANALB EXPRESS — Serviços de Táxi">
+      </div>
+      <div class="sheet-title-group">
+        <h1 class="sheet-title">Personalização da viatura</h1>
+        <p class="sheet-subtitle">Suzuki Alto · Identidade visual da frota</p>
+        <div class="sheet-title-line"></div>
+      </div>
+    </header>
+
+    <!-- Grid 2x2 com os 4 ângulos da simulação -->
+    <section class="grid-photos" aria-label="Ângulos de personalização da viatura">
+      <!-- 1: Vidro Traseiro -->
+      <article class="photo-card">
+        <div class="photo-wrapper">
+          <span class="photo-badge">1</span>
+          <img src="assets/images/media_1795408093036_93721f64.jpg" 
+               onerror="this.onerror=null; this.src='C:/Users/Filipe Mafuila/.gemini/antigravity/brain/b275f426-c17d-43f4-8aae-c52497c6a365/.user_uploaded/media_1795408093036_93721f64.jpg';" 
+               alt="Vidro traseiro com autocolante Danalb Express">
+        </div>
+        <div class="photo-info">
+          <h2 class="photo-title">Vidro traseiro</h2>
+          <p class="photo-desc">Telefone, site e email · simulado com ≈ 80 cm de largura</p>
+        </div>
+      </article>
+
+      <!-- 2: Vista Traseira Lateral -->
+      <article class="photo-card">
+        <div class="photo-wrapper">
+          <span class="photo-badge">2</span>
+          <img src="assets/images/media_1795408093019_4797b6e9.jpg" 
+               onerror="this.onerror=null; this.src='C:/Users/Filipe Mafuila/.gemini/antigravity/brain/b275f426-c17d-43f4-8aae-c52497c6a365/.user_uploaded/media_1795408093019_4797b6e9.jpg';" 
+               alt="Vista traseira lateral do Suzuki Alto">
+        </div>
+        <div class="photo-info">
+          <h2 class="photo-title">Vista traseira lateral</h2>
+          <p class="photo-desc">Conjunto completo: círculo na porta + autocolante no vidro</p>
+        </div>
+      </article>
+
+      <!-- 3: Porta da Frente · Lado Esquerdo -->
+      <article class="photo-card">
+        <div class="photo-wrapper">
+          <span class="photo-badge">3</span>
+          <img src="assets/images/media_1795408093019_4797b6e9.jpg" 
+               onerror="this.onerror=null; this.src='C:/Users/Filipe Mafuila/.gemini/antigravity/brain/b275f426-c17d-43f4-8aae-c52497c6a365/.user_uploaded/media_1795408093019_4797b6e9.jpg';" 
+               alt="Porta da frente lado esquerdo com círculo do logotipo">
+        </div>
+        <div class="photo-info">
+          <h2 class="photo-title">Porta da frente · lado esquerdo</h2>
+          <p class="photo-desc">Logotipo em círculo · simulado com Ø 30 cm</p>
+        </div>
+      </article>
+
+      <!-- 4: Porta da Frente · Lado Direito -->
+      <article class="photo-card">
+        <div class="photo-wrapper">
+          <span class="photo-badge">4</span>
+          <img src="assets/images/media_1795408093019_4797b6e9.jpg" 
+               onerror="this.onerror=null; this.src='C:/Users/Filipe Mafuila/.gemini/antigravity/brain/b275f426-c17d-43f4-8aae-c52497c6a365/.user_uploaded/media_1795408093019_4797b6e9.jpg';" 
+               alt="Porta da frente lado direito com mesmo círculo" style="transform: scaleX(-1);">
+        </div>
+        <div class="photo-info">
+          <h2 class="photo-title">Porta da frente · lado direito</h2>
+          <p class="photo-desc">Mesmo círculo e mesma posição no lado oposto</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Banner Inferior com Contactos e Medidas -->
+    <section class="specs-banner">
+      <!-- Coluna Contactos -->
+      <div>
+        <h3 class="specs-col-header">Contactos no vidro traseiro</h3>
+        <a href="tel:+244936611252" class="contact-phone">936 611 252</a>
+        <a href="https://taxi.danalbangola.com" target="_blank" rel="noopener noreferrer" class="contact-item">www.taxi.danalbangola.com</a>
+        <a href="mailto:geral@danalbangola.com" class="contact-item">geral@danalbangola.com</a>
+      </div>
+
+      <!-- Coluna Medidas da Simulação -->
+      <div>
+        <h3 class="specs-col-header">Medidas da simulação</h3>
+        <ul class="measure-list">
+          <li>Círculo nas portas: <strong>Ø 30 cm</strong> <span style="opacity: 0.75;">(no PDF: 15 cm)</span></li>
+          <li>Autocolante do vidro: <strong>80 cm</strong> <span style="opacity: 0.75;">(no PDF: 43 cm)</span></li>
+        </ul>
+        <p class="measure-alert">Confirmar as medidas com a gráfica antes de imprimir.</p>
+      </div>
+    </section>
+
+    <!-- Nota de rodapé técnica -->
+    <footer class="sheet-footer">
+      <p>Simulação sobre fotografias reais, com o desenho do PDF da gráfica. O lado direito foi gerado a partir da foto do lado esquerdo (espelhada).</p>
+    </footer>
+  </main>
+
+</body>
+</html>
